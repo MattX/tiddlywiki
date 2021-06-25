@@ -1,0 +1,31 @@
+version: '3.4'
+
+services:
+  tiddlywiki:
+    image: tiddlywiki
+    build:
+      context: tiddlywiki
+      dockerfile: Dockerfile
+    expose:
+      - 8080
+    volumes:
+      - /var/wiki/:/mattwiki/tiddlers/
+  nginx:
+    image: nginx
+    build: 
+      context: nginx
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /etc/letsencrypt/:/etc/letsencrypt/
+  oauth2-proxy:
+    image: oauth2-proxy
+    build:
+      context: oauth2-proxy
+      dockerfile: Dockerfile
+    expose:
+      - 4180
+    volumes:
+      - ${PWD}/client-secret.txt:/etc/client-secret.txt
