@@ -9,7 +9,7 @@ services:
     expose:
       - 8080
     volumes:
-      - /var/wiki/:/mattwiki/tiddlers/
+      - /var/wiki/:/wiki/tiddlers/
   nginx:
     image: nginx
     build: 
@@ -28,4 +28,11 @@ services:
     expose:
       - 4180
     volumes:
-      - ${PWD}/client-secret.txt:/etc/client-secret.txt
+      - ${PWD}/google-oauth-client-secret.txt:/etc/google-oauth-client-secret.txt
+  backup:
+    image: backup
+    build:
+      context: backup
+      dockerfile: Dockerfile
+    volumes:
+      - /var/wiki/:/wiki/tiddlers/

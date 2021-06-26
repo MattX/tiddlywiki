@@ -9,7 +9,6 @@
         "tiddlywiki/twitter"
     ],
     "themes": [
-        "mattx/vanilla"
     ],
     "build": {
         "index": [

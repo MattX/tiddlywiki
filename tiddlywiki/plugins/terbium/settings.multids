@@ -1,0 +1,6 @@
+title: $:/themes/terbium/settings/
+
+fontfamily: "Georgia",serif
+codefontfamily: "Input Mono","SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace
+backgroundimageattachment: fixed
+backgroundimagesize: auto

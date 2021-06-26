@@ -1,6 +1,6 @@
-title: $:/themes/tiddlywiki/vanilla/sticky
+title: $:/themes/terbium/sticky
 
-<$reveal state="$:/themes/tiddlywiki/vanilla/options/stickytitles" type="match" text="yes">
+<$reveal state="$:/themes/terbium/options/stickytitles" type="match" text="yes">
 ``
 .tc-tiddler-title {
 	position: -webkit-sticky;

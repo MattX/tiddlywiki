@@ -1,36 +1,36 @@
-title: $:/themes/tiddlywiki/vanilla/base
+title: $:/themes/terbium/base
 tags: [[$:/tags/Stylesheet]]
 
 \define custom-background-datauri()
-<$set name="background" value={{$:/themes/tiddlywiki/vanilla/settings/backgroundimage}}>
+<$set name="background" value={{$:/themes/terbium/settings/backgroundimage}}>
 <$list filter="[<background>is[image]]">
 `background: url(`
 <$list filter="[<background>!has[_canonical_uri]]">
-`"`<$macrocall $name="datauri" title={{$:/themes/tiddlywiki/vanilla/settings/backgroundimage}}/>`"`
+`"`<$macrocall $name="datauri" title={{$:/themes/terbium/settings/backgroundimage}}/>`"`
 </$list>
 <$list filter="[<background>has[_canonical_uri]]">
-`"`<$view tiddler={{$:/themes/tiddlywiki/vanilla/settings/backgroundimage}} field="_canonical_uri"/>`"`
+`"`<$view tiddler={{$:/themes/terbium/settings/backgroundimage}} field="_canonical_uri"/>`"`
 </$list>
 `) center center;`
-`background-attachment: `{{$:/themes/tiddlywiki/vanilla/settings/backgroundimageattachment}}`;
--webkit-background-size:` {{$:/themes/tiddlywiki/vanilla/settings/backgroundimagesize}}`;
--moz-background-size:` {{$:/themes/tiddlywiki/vanilla/settings/backgroundimagesize}}`;
--o-background-size:` {{$:/themes/tiddlywiki/vanilla/settings/backgroundimagesize}}`;
-background-size:` {{$:/themes/tiddlywiki/vanilla/settings/backgroundimagesize}}`;`
+`background-attachment: `{{$:/themes/terbium/settings/backgroundimageattachment}}`;
+-webkit-background-size:` {{$:/themes/terbium/settings/backgroundimagesize}}`;
+-moz-background-size:` {{$:/themes/terbium/settings/backgroundimagesize}}`;
+-o-background-size:` {{$:/themes/terbium/settings/backgroundimagesize}}`;
+background-size:` {{$:/themes/terbium/settings/backgroundimagesize}}`;`
 </$list>
 </$set>
 \end
 
 \define sidebarbreakpoint()
-<$text text={{$:/themes/tiddlywiki/vanilla/metrics/sidebarbreakpoint}}/>
+<$text text={{$:/themes/terbium/metrics/sidebarbreakpoint}}/>
 \end
 
 \define sidebarbreakpoint-minus-one()
-<$text text={{{ [{$:/themes/tiddlywiki/vanilla/metrics/sidebarbreakpoint}removesuffix[px]subtract[1]addsuffix[px]] ~[{$:/themes/tiddlywiki/vanilla/metrics/sidebarbreakpoint}] }}}/>
+<$text text={{{ [{$:/themes/terbium/metrics/sidebarbreakpoint}removesuffix[px]subtract[1]addsuffix[px]] ~[{$:/themes/terbium/metrics/sidebarbreakpoint}] }}}/>
 \end
 
 \define if-fluid-fixed(text,hiddenSidebarText)
-<$reveal state="$:/themes/tiddlywiki/vanilla/options/sidebarlayout" type="match" text="fluid-fixed">
+<$reveal state="$:/themes/terbium/options/sidebarlayout" type="match" text="fluid-fixed">
 $text$
 <$reveal state="$:/state/sidebar" type="nomatch" text="yes" default="yes">
 $hiddenSidebarText$
@@ -67,7 +67,7 @@ $else$
 ** Start with the normalize CSS reset, and then belay some of its effects
 */
 
-{{$:/themes/tiddlywiki/vanilla/reset}}
+{{$:/themes/terbium/reset}}
 
 *, input[type="search"] {
 	box-sizing: border-box;
@@ -96,7 +96,7 @@ button:disabled svg {
 */
 
 html, body {
-	font-family: {{$:/themes/tiddlywiki/vanilla/settings/fontfamily}};
+	font-family: {{$:/themes/terbium/settings/fontfamily}};
 	text-rendering: optimizeLegibility; /* Enables kerning and ligatures etc. */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -107,8 +107,8 @@ html:-webkit-full-screen {
 }
 
 body.tc-body {
-	font-size: {{$:/themes/tiddlywiki/vanilla/metrics/fontsize}};
-	line-height: {{$:/themes/tiddlywiki/vanilla/metrics/lineheight}};
+	font-size: {{$:/themes/terbium/metrics/fontsize}};
+	line-height: {{$:/themes/terbium/metrics/lineheight}};
 	word-wrap: break-word;
 	<<custom-background-datauri>>
 	color: <<colour foreground>>;
@@ -144,22 +144,22 @@ pre {
 	margin-bottom: 1em;
 	word-break: normal;
 	word-wrap: break-word;
-	white-space: {{$:/themes/tiddlywiki/vanilla/options/codewrapping}};
+	white-space: {{$:/themes/terbium/options/codewrapping}};
 	background-color: <<colour pre-background>>;
 	border: 1px solid <<colour pre-border>>;
 	padding: 0 3px 2px;
 	border-radius: 3px;
-	font-family: {{$:/themes/tiddlywiki/vanilla/settings/codefontfamily}};
+	font-family: {{$:/themes/terbium/settings/codefontfamily}};
 }
 
 code {
 	color: <<colour code-foreground>>;
 	background-color: <<colour code-background>>;
 	border: 1px solid <<colour code-border>>;
-	white-space: {{$:/themes/tiddlywiki/vanilla/options/codewrapping}};
+	white-space: {{$:/themes/terbium/options/codewrapping}};
 	padding: 0 3px 2px;
 	border-radius: 3px;
-	font-family: {{$:/themes/tiddlywiki/vanilla/settings/codefontfamily}};
+	font-family: {{$:/themes/terbium/settings/codefontfamily}};
 }
 
 blockquote {
@@ -218,6 +218,11 @@ blockquote.tc-big-quote:after {
 dl dt {
 	font-weight: bold;
 	margin-top: 6px;
+}
+
+textarea, input, select {
+	border: 1px solid <<color foreground>>;
+	border-radius: 5px;
 }
 
 button, textarea, input, select {
@@ -908,7 +913,7 @@ button.tc-btn-invisible.tc-remove-tag-button {
 	.tc-sidebar-header {
 		padding: 14px;
 		min-height: 32px;
-		margin-top: {{$:/themes/tiddlywiki/vanilla/metrics/storytop}};
+		margin-top: {{$:/themes/terbium/metrics/storytop}};
 		transition:  min-height {{$:/config/AnimationDuration}}ms ease-in-out, padding-top {{$:/config/AnimationDuration}}ms ease-in-out, padding-bottom {{$:/config/AnimationDuration}}ms ease-in-out;
 	}
 	
@@ -936,8 +941,8 @@ button.tc-btn-invisible.tc-remove-tag-button {
 
 	.tc-sidebar-scrollable {
 		position: fixed;
-		top: {{$:/themes/tiddlywiki/vanilla/metrics/storytop}};
-		left: {{$:/themes/tiddlywiki/vanilla/metrics/storyright}};
+		top: {{$:/themes/terbium/metrics/storytop}};
+		left: {{$:/themes/terbium/metrics/storyright}};
 		bottom: 0;
 		right: 0;
 		overflow-y: auto;
@@ -949,21 +954,21 @@ button.tc-btn-invisible.tc-remove-tag-button {
 
 	html[dir="rtl"] .tc-sidebar-scrollable {
 		left: auto;
-		right: {{$:/themes/tiddlywiki/vanilla/metrics/storyright}};
+		right: {{$:/themes/terbium/metrics/storyright}};
 	}
 
 	.tc-story-river {
 		position: relative;
-		left: {{$:/themes/tiddlywiki/vanilla/metrics/storyleft}};
-		top: {{$:/themes/tiddlywiki/vanilla/metrics/storytop}};
-		width: {{$:/themes/tiddlywiki/vanilla/metrics/storywidth}};
+		left: {{$:/themes/terbium/metrics/storyleft}};
+		top: {{$:/themes/terbium/metrics/storytop}};
+		width: {{$:/themes/terbium/metrics/storywidth}};
 		padding: 42px 42px 42px 42px;
 	}
 
 <<if-no-sidebar "
 
 	.tc-story-river {
-		width: calc(100% - {{$:/themes/tiddlywiki/vanilla/metrics/storyleft}});
+		width: calc(100% - {{$:/themes/terbium/metrics/storyleft}});
 	}
 
 ">>
@@ -1008,7 +1013,7 @@ button.tc-btn-invisible.tc-remove-tag-button {
 	border: 1px solid <<colour tiddler-border>>;
 }
 
-{{$:/themes/tiddlywiki/vanilla/sticky}}
+{{$:/themes/terbium/sticky}}
 
 .tc-tiddler-info {
 	overflow: hidden;
@@ -1065,7 +1070,7 @@ button.tc-btn-invisible.tc-remove-tag-button {
 @media (min-width: <<sidebarbreakpoint>>) {
 	.tc-tiddler-frame {
 		padding: 28px 42px 42px 42px;
-		width: {{$:/themes/tiddlywiki/vanilla/metrics/tiddlerwidth}};
+		width: {{$:/themes/terbium/metrics/tiddlerwidth}};
 		border-radius: 2px;
 	}
 
@@ -1199,7 +1204,7 @@ button.tc-btn-invisible.tc-remove-tag-button {
 	border: 1px solid <<colour tiddler-editor-border>>;
 	line-height: 1.3em;
 	-webkit-appearance: none;
-	font-family: {{$:/themes/tiddlywiki/vanilla/settings/editorfontfamily}};
+	font-family: {{$:/themes/terbium/settings/editorfontfamily}};
 }
 
 .tc-tiddler-frame input.tc-edit-texteditor,
@@ -1243,8 +1248,8 @@ canvas.tc-edit-bitmapeditor  {
 }
 
 .tc-tiddler-frame .tc-tiddler-body {
-	font-size: {{$:/themes/tiddlywiki/vanilla/metrics/bodyfontsize}};
-	line-height: {{$:/themes/tiddlywiki/vanilla/metrics/bodylineheight}};
+	font-size: {{$:/themes/terbium/metrics/bodyfontsize}};
+	line-height: {{$:/themes/terbium/metrics/bodylineheight}};
 }
 
 .tc-titlebar, .tc-tiddler-edit-title {
@@ -1334,8 +1339,8 @@ html body.tc-body.tc-single-tiddler-window {
 		position: relative;
 		width: auto;
 		left: 0;
-		margin-left: {{$:/themes/tiddlywiki/vanilla/metrics/storyleft}};
-		margin-right: {{$:/themes/tiddlywiki/vanilla/metrics/sidebarwidth}};
+		margin-left: {{$:/themes/terbium/metrics/storyleft}};
+		margin-right: {{$:/themes/terbium/metrics/sidebarwidth}};
 	}
 
 	.tc-tiddler-frame {
@@ -1346,7 +1351,7 @@ html body.tc-body.tc-single-tiddler-window {
 		left: auto;
 		bottom: 0;
 		right: 0;
-		width: {{$:/themes/tiddlywiki/vanilla/metrics/sidebarwidth}};
+		width: {{$:/themes/terbium/metrics/sidebarwidth}};
 	}
 
 	body.tc-body .tc-storyview-zoomin-tiddler {

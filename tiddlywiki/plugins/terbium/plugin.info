@@ -1,0 +1,9 @@
+{
+	"title": "$:/themes/terbium",
+	"name": "Terbium",
+	"author": "Matthieu Felix",
+	"core-version": ">=5.0.0",
+	"plugin-type": "theme",
+	"description": "Terbium theme",
+	"plugin-priority": "0"
+}
