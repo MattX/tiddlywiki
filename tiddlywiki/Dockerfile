@@ -4,5 +4,6 @@ RUN npm install -g tiddlywiki@5.1.23
 RUN mkdir mattwiki
 COPY tiddlywiki.info wiki/tiddlywiki.info
 COPY plugins wiki/plugins
+COPY themes wiki/themes
 
 ENTRYPOINT [ "tiddlywiki", "wiki", "--listen", "host=0.0.0.0" ]

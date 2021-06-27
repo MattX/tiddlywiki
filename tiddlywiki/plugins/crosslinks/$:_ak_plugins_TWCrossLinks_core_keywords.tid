@@ -1,0 +1,26 @@
+title: $:/ak/plugins/TWCrossLinks/core/keywords
+caption: Keywords
+created: 20200429195123372
+creator: akhater
+modified: 20200522105420967
+modifier: akhater
+tags: $:/tags/TWCrossLinks
+type: text/vnd.tiddlywiki
+revision: 0
+bag: default
+
+
+
+<$list filter="[search:keywords<currentTiddler>!is[system]!is[shadow]sort[title]]" emptyMessage="There are no tiddler having this one as keyword" variable=result>
+    <$list filter="[[$:/ak/plugins/TWCrossLinks/config/default]getindex[TranscludeInboundLinks]] -[[true]]" variable=conf>
+        <div class="tc-menu-list-item"> <$link to=<<result>> ><$view tiddler=<<result>> field=title> </$view></$link> </div>
+    </$list>
+    <$list filter="[[$:/ak/plugins/TWCrossLinks/config/default]getindex[TranscludeInboundLinks]] -[[false]]" variable=conf>
+        <div class="tc-menu-list-item">
+            <div class="trans-container"> 
+                <$link to=<<result>> ><$view tiddler=<<result>> field=title template="$:/core/ui/ListItemTemplate"> </$view></$link>
+                <span class="trans-content noContext">  <$transclude tiddler= <<result>> />  </span> 
+            </div>
+        </div>
+    </$list>
+</$list>

@@ -1,6 +1,6 @@
 set -e
 
-pushd /wiki/tiddlers
+cd /wiki/tiddlers
 git add .
 
 git diff --cached --exit-code || (echo "No changes detected, exiting"; exit 0)

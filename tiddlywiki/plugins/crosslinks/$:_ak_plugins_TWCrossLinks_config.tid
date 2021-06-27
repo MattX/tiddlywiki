@@ -1,0 +1,33 @@
+title: $:/ak/plugins/TWCrossLinks/config
+created: 20200503100751953
+creator: akhater
+modified: 20200522102100118
+modifier: akhater
+type: text/vnd.tiddlywiki
+revision: 0
+bag: default
+
+
+''By default the //inbound links// should be:'' <br />
+<$tiddler tiddler="$:/ak/plugins/TWCrossLinks/config/default">
+<$radio index="DefaultFoldData" value="show"> Shown </$radio>
+<$radio index="DefaultFoldData" value="hide"> Hidden </$radio>
+</$tiddler>
+
+<!--
+''Select which Tab you want to be open by Default'' <br />
+<$tiddler tiddler="$:/ak/plugins/TWCrossLinks/config/default">
+<$radio index="DefaultTab" value="$:/ak/plugins/TWCrossLinks/core/backlinks"> Backlinks </$radio>
+<$radio index="DefaultTab" value="$:/ak/plugins/TWCrossLinks/core/freelinks"> Freelinks </$radio>
+<$radio index="DefaultTab" value="$:/ak/plugins/TWCrossLinks/core/keywords"> Keywords </$radio>
+<$radio index="DefaultTab" value="$:/ak/plugins/TWCrossLinks/core/tagging"> Tagged </$radio>
+</$tiddler>
+-->
+
+<$checkbox tiddler="$:/ak/plugins/TWCrossLinks/config/default" index="TranscludeInboundLinks" checked="true" unchecked="false" default="false"> ''Transclude //Backlinks// & //Freelinks// on hover''</$checkbox>
+
+<$checkbox tiddler="$:/ak/plugins/TWCrossLinks/config/default" index="HideInboundTitle" checked="true" unchecked="false" default="false"> ''Make inbound links permanent (removes toggle option)''</$checkbox>
+
+<$checkbox tiddler="$:/ak/plugins/TWCrossLinks/config/default" index="UseFullMatch4Freelinks" checked="true" unchecked="false" default="false"> ''Consider only Full match as //freelink//''</$checkbox>
+
+<div style="float: right;">,,~TWCrossLinks version {{$:/ak/plugins/TWCrossLinks!!version}},,</div>

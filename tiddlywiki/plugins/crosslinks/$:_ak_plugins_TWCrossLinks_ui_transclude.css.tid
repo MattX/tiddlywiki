@@ -1,0 +1,68 @@
+title: $:/ak/plugins/TWCrossLinks/ui/transclude.css
+created: 20200505112617003
+creator: akhater
+modified: 20200522112043494
+modifier: akhater
+tags: $:/tags/Stylesheet
+type: text/vnd.tiddlywiki
+revision: 0
+bag: default
+
+
+.trans-container {
+  position: relative;
+  display: inline-block;
+}
+
+.trans-container .trans-content {
+  visibility: hidden;
+  overflow: hidden;
+  margin-top: -2em;
+  padding: 5px;
+  display: block;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 80;
+  
+  /*  
+  top: 20px;
+  left: 20px;  */
+
+  float: right;  
+  opacity: 0;
+  transition: opacity 0.3s; 
+}
+
+.trans-container .trans-content::after {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: 1px;
+}
+
+.trans-content {
+   width: 90vw;
+   max-width: 32em;
+}
+
+
+.trans-container:hover > .trans-content {
+  margin-top:-5px;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.25s all ease;
+  transition-delay: 0.75s;
+}
+
+span.trans-content.noContext {
+
+background-color: <<colour page-background>>;
+
+border-radius: 5px;
+padding: 1px 1em;
+border: 1px solid #cccccc;
+}
+
+

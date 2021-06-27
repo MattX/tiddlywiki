@@ -1,0 +1,60 @@
+created: 20200502091404523
+creator: akhater
+bag: default
+type: text/vnd.tiddlywiki
+title: $:/ak/plugins/TWCrossLinks/change.log
+tags: 
+modified: 20200522133028701
+revision: 32
+modifier: akhater
+
+
+''2020-05-22'': v0.1.20
+
+* Empty tabs are not now hidden no need to look at empty spaces
+* Transclusion now works for keywords and tags, full Tiddler is transcluded
+* Change in the transclusion css to match the selected theme
+
+''2020-05-18'': v0.1.18
+
+* Bug fixes in freelinks
+* Added option to allow freelinks matching with "full match" or "Partial Match"
+
+''2020-05-18'': v0.1.17
+
+* System Tiddlers should now be hidden
+* Freelinks fixed to show only full word match (credits Scott Kingery)
+* Freelinks now search titles too  (credits Scott Kingery)
+* Performance tweak | More efficient coding 
+* Bug fix in reference counter
+
+''2020-05-14'': v0.1.8
+
+* You can now exclude a tiddler from appearing in the references by tagging it with "hide" 
+
+''2020-05-13'': v0.1.6
+
+* Bug fixes uncaught js error in transclusion code
+
+''2020-05-08'': v0.1.3
+
+* Added counter showing the number of inbound links
+* Fixed bug in Freelinks
+* Saved some screen real-estate in the footer 
+* Added the possibility to remove the toggle and show the tabs by default saving even more screen estate try it 
+**<$checkbox tiddler="$:/ak/plugins/TWCrossLinks/config/default" index="HideInboundTitle" checked="true" unchecked="false" default="false"> ''Hide Inbound Links Title & display references''</$checkbox>
+
+''2020-05-05'': v0.1.0
+
+* Inbound links for "//Backlinks//" and "//Freelinks//" can now be transcluded in a pop-up, try it by enabling this feature from the [[TWCrosslinks|$:/ak/plugins/TWCrossLinks]] config panel
+
+
+''2020-05-03'': v0.0.7
+
+* Added configuration panel, can be found at $:/ak/plugins/TWCrossLinks
+** You can now set the Default state of the "inbound links" {Shown / Hidden}
+** You can now set the Default "inbound links" tab
+
+''2020-05-02'': v0.0.3
+
+* Initial packaging and release

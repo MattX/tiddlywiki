@@ -1,0 +1,24 @@
+created: 20200429182330136
+bag: default
+revision: 0
+type: text/vnd.tiddlywiki
+title: $:/ak/plugins/TWCrossLinks/core/backlinks
+tags: $:/tags/TWCrossLinks
+modified: 20200513143753383
+caption: Backlinks
+
+
+\define lingo-base() $:/language/TiddlerInfo/
+<$list filter="[all[current]backlinks[]!is[system]!is[shadow]!tag[hide]sort[title]] -[is[current]]" emptyMessage=<<lingo References/Empty>> variable=result>
+    <$list filter="[[$:/ak/plugins/TWCrossLinks/config/default]getindex[TranscludeInboundLinks]] -[[true]]" variable=conf>
+        <div class="tc-menu-list-item"> <$link to=<<result>> ><$view tiddler=<<result>> field=title> </$view></$link> </div>  
+    </$list>
+    <$list filter="[[$:/ak/plugins/TWCrossLinks/config/default]getindex[TranscludeInboundLinks]] -[[false]]" variable=conf>
+        <div class="tc-menu-list-item">
+            <div class="trans-container"> 
+                <$link to=<<result>> ><$view tiddler=<<result>> field=title template="$:/core/ui/ListItemTemplate"> </$view></$link>
+                <span class="trans-content">  <$context term=<<currentTiddler>> tiddler= <<result>> />  </span> 
+            </div>
+        </div>
+    </$list>
+</$list>

@@ -1,0 +1,27 @@
+title: $:/ak/plugins/TWCrossLinks/ui/tabs
+created: 20200429182054776
+creator: akhater
+modified: 20200522102012918
+modifier: akhater
+tags: 
+type: text/vnd.tiddlywiki
+revision: 0
+bag: default
+
+
+\define pattern()
+\b$(currentTiddler)$\b(?i)
+\end
+
+
+<$vars  isBacklink={{{ [all[current]backlinks[]!is[system]!is[shadow]!tag[hide]sort[title]] -[is[current]] +[then[$:/ak/plugins/TWCrossLinks/core/backlinks]else[]] }}} 
+        isKeyword={{{ [search:keywords<currentTiddler>!is[system]!is[shadow]sort[title]] +[then[$:/ak/plugins/TWCrossLinks/core/keywords]else[]] }}}
+        isTag = {{{ [all[current]tagging[]!is[system]!is[shadow]] +[then[$:/ak/plugins/TWCrossLinks/core/tagging]else[]] }}}
+        isFreelink = {{{ [regexp:title<pattern>] [regexp:text<pattern>] -[all[current]backlinks[]] -[is[current]] -[tag[hide]] -[is[system]] +[then[$:/ak/plugins/TWCrossLinks/core/freelinks]else[]] }}}
+>
+
+    <$set name=DefaultTab filter="[enlist<isBacklink>] [enlist<isKeyword>] [enlist<isTag>] [enlist<isFreelink>] +[sort[]first[]]" >
+        <$macrocall $name="tabs" tabsList="[enlist<isBacklink>] [enlist<isKeyword>] [enlist<isTag>] [enlist<isFreelink>] +[sort[]]"  default=<<DefaultTab>> />
+    </$set>
+
+</$vars>

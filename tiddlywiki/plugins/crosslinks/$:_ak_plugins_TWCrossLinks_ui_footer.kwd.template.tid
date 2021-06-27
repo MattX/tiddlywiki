@@ -1,0 +1,28 @@
+created: 20200428204919232
+bag: default
+revision: 0
+type: text/vnd.tiddlywiki
+title: $:/ak/plugins/TWCrossLinks/ui/footer.kwd.template
+modified: 20200502091004582
+
+
+\define keywords-body(kwd)
+<$list filter="[tag[$kwd$]] [search:keywords[$kwd$]]" variable="itemTid">
+<$link to=<<itemTid>> ><$text text=<<itemTid>>/></$link>
+</$list>
+\end
+<!-- keywords-body lists all tiddler tagged with kwd or have kwd in their keywords field -->
+
+
+<$set name="transclusion" value=<<qualify "$:/state/popup/tag">> >
+<$button class="tc-btn-invisible sl-keywords" popup=<<transclusion>> >
+<$text text=<<currentTiddler>>/>
+</$button>
+<$reveal state=<<transclusion>> type="popup" position="below" animate="yes" class="tc-drop-down">
+<$link to=<<currentTiddler>> ><$text text=<<currentTiddler>>/></$link>
+<hr>
+<$macrocall $name="keywords-body" kwd=<<currentTiddler>> />
+</$reveal>
+</$set>
+
+

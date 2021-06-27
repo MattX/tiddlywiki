@@ -11,6 +11,8 @@ There are five containers, orchestrated through docker-compose:
 
 The reverse proxy serves directly on port 80/443, so I assume this is the only web server running on the system. If I want to add other web apps to this server, I'll probably just add new containers to this repo and wire them through the same reverse proxy.
 
+The Tiddlywiki install contains [the TWCrossLinks](https://github.com/akhater/TWCrossLinks) plugin.
+
 ## Setup
 
 1. Create a file named `client-secret.txt` containing the OAuth client secret. Make sure you don't have spaces or a newline after the secret!

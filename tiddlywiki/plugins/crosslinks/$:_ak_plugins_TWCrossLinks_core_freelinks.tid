@@ -1,0 +1,54 @@
+title: $:/ak/plugins/TWCrossLinks/core/freelinks
+caption: Freelinks
+created: 20200430051330741
+creator: akhater
+modified: 20200522113718035
+modifier: akhater
+tags: $:/tags/TWCrossLinks
+type: text/vnd.tiddlywiki
+revision: 0
+bag: default
+
+
+\define fullMatchPattern()
+\b$(currentTiddler)$\b(?i)
+\end
+
+\define PartialMatchPattern()
+$(currentTiddler)$(?i)
+\end
+
+<$list filter="[[$:/ak/plugins/TWCrossLinks/config/default]getindex[UseFullMatch4Freelinks]match[true]]" variable=none>
+    <$set name=pattern value=<<fullMatchPattern>> >
+        <$list filter="[regexp:title<pattern>] [regexp:text<pattern>] -[all[current]backlinks[]] -[all[current]tagging[]] -[is[current]] -[tag[hide]] -[is[system]]" emptyMessage="No freelinks to this tiddler" variable=result>
+            <$list filter="[[$:/ak/plugins/TWCrossLinks/config/default]getindex[TranscludeInboundLinks]] -[[true]]" variable=var1>
+                <div class="tc-menu-list-item"> <$link to=<<result>> ><$view tiddler=<<result>> field=title> </$view></$link> </div> 
+            </$list>
+            <$list filter="[[$:/ak/plugins/TWCrossLinks/config/default]getindex[TranscludeInboundLinks]] -[[false]]" variable=var1>
+                <div class="tc-menu-list-item">
+                    <div class="trans-container">
+                        <$link to=<<result>> ><$view tiddler=<<result>> field=title> </$view></$link>
+                        <span class="trans-content">  <$context term=<<currentTiddler>> tiddler=<<result>> /> </span>
+                    </div>
+                </div>
+            </$list>
+        </$list>
+    </$set>
+</$list>
+<$list filter="[[$:/ak/plugins/TWCrossLinks/config/default]getindex[UseFullMatch4Freelinks]match[false]]" variable=none>
+    <$set name=pattern value=<<PartialMatchPattern>> >
+        <$list filter="[regexp:title<pattern>] [regexp:text<pattern>] -[all[current]backlinks[]] -[all[current]tagging[]] -[is[current]] -[tag[hide]] -[is[system]]" emptyMessage="No freelinks to this tiddler" variable=result>
+            <$list filter="[[$:/ak/plugins/TWCrossLinks/config/default]getindex[TranscludeInboundLinks]] -[[true]]" variable=var1>
+                <div class="tc-menu-list-item"> <$link to=<<result>> ><$view tiddler=<<result>> field=title> </$view></$link> </div> 
+            </$list>
+            <$list filter="[[$:/ak/plugins/TWCrossLinks/config/default]getindex[TranscludeInboundLinks]] -[[false]]" variable=var1>
+                <div class="tc-menu-list-item">
+                    <div class="trans-container">
+                        <$link to=<<result>> ><$view tiddler=<<result>> field=title> </$view></$link>
+                        <span class="trans-content">  <$context term=<<currentTiddler>> tiddler=<<result>> /> </span>
+                    </div>
+                </div>
+            </$list>
+        </$list>
+    </$set>
+</$list>

@@ -1,0 +1,14 @@
+{
+    "bag": "default",
+    "revision": "1",
+    "version": "0.1.19",
+    "type": "application/json",
+    "title": "$:/ak/plugins/TWCrossLinks",
+    "tags": "",
+    "plugin-type": "plugin",
+    "name": "TWCrossLinks",
+    "modified": "20200522133137356",
+    "list": "config readme change.log",
+    "description": "Discover all your intra tiddlers links",
+    "created": "20200502092707287"
+}

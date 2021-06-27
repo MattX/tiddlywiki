@@ -1,0 +1,28 @@
+title: $:/ak/plugins/TWCrossLinks/core/tagging
+caption: Tagged
+created: 20200429183952157
+creator: akhater
+modified: 20200522113343160
+modifier: akhater
+tags: $:/tags/TWCrossLinks
+type: text/vnd.tiddlywiki
+revision: 0
+bag: default
+
+
+
+\define lingo-base() $:/language/TiddlerInfo/
+<$list filter="[all[current]tagging[]!is[system]!is[shadow]]" emptyMessage=<<lingo Tagging/Empty>> variable=result>
+    <$list filter="[[$:/ak/plugins/TWCrossLinks/config/default]getindex[TranscludeInboundLinks]] -[[true]]" variable=conf>
+        <div class="tc-menu-list-item"> <$link to=<<result>> ><$view tiddler=<<result>> field=title> </$view></$link> </div>
+    </$list>
+    <$list filter="[[$:/ak/plugins/TWCrossLinks/config/default]getindex[TranscludeInboundLinks]] -[[false]]" variable=conf>
+        <div class="tc-menu-list-item">
+            <div class="trans-container"> 
+                <$link to=<<result>> ><$view tiddler=<<result>> field=title template="$:/core/ui/ListItemTemplate"> </$view></$link>
+                <span class="trans-content noContext">  <$transclude tiddler= <<result>> />  </span> 
+            </div>
+        </div>
+    </$list>
+</$list>
+

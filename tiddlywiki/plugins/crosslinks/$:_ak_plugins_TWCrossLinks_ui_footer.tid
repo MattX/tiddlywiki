@@ -1,0 +1,80 @@
+created: 20200430143629582
+bag: default
+revision: 0
+type: text/vnd.tiddlywiki
+title: $:/ak/plugins/TWCrossLinks/ui/footer
+tags: $:/tags/ViewTemplate
+modified: 20200518214521376
+
+
+\define fullMatchPattern()
+\b$(currentTiddler)$\b(?i)
+\end
+
+\define PartialMatchPattern()
+$(currentTiddler)$(?i)
+\end
+
+\define showFooterTabs() 
+<span class="TWCrossLinksFooter">
+    <$list filter="[all[shadows+tiddlers]tag[$:/tags/TWCrossLinksSegment]!has[draft.of]] [[$:/ak/plugins/TWCrossLinks/ui/tabs]]" variable="listItem"><$transclude tiddler=<<listItem>> mode="block"> </$list>
+</span>
+\end
+
+<$list filter="[[$:/ak/plugins/TWCrossLinks/config/default]getindex[UseFullMatch4Freelinks]match[true]]" variable=none>
+    <$set name="text-pattern" value=<<fullMatchPattern>>>
+        <$list filter="[all[current]tagging[]]  [search:keywords<currentTiddler>]  [regexp:text<text-pattern>] [regexp:title<text-pattern>] [all[current]backlinks[]] -[is[current]] -[tag[hide]] -[is[system]] +[limit[1]]" variable=none>
+            <$reveal type="nomatch" stateTitle=<<folded-state>> text="hide">
+                <span class="hideprint">
+                    <$list filter="[[$:/ak/plugins/TWCrossLinks/config/default]getindex[HideInboundTitle]] -[[true]]" variable=conf>
+                        <hr />
+                        <span style="font-size:0.85em" >
+                            //<$count filter="[all[current]tagging[]]  [search:keywords<currentTiddler>]  [regexp:text<text-pattern>] [regexp:title<text-pattern>] [all[current]backlinks[]] -[is[current]] -[tag[hide]] -[is[system]]" />  References:// 
+                        </span>
+                        <$list filter="[[$:/ak/plugins/TWCrossLinks/config/default]getindex[DefaultFoldData]]" variable=DefaultFoldState>
+                            <$reveal type="nomatch" stateTitle="$:/temp/TWCrossLinksFoldData" stateIndex=<<currentTiddler>> text="show" default=<<DefaultFoldState>> >
+                                <$button  class=<<tv-config-toolbar-class>> setTitle="$:/temp/TWCrossLinksFoldData" setIndex=<<currentTiddler>> setTo="show">{{$:/core/images/unfold-button}}</$button>    
+                            </$reveal>
+                            <$reveal type="match" stateTitle="$:/temp/TWCrossLinksFoldData" stateIndex=<<currentTiddler>> text="show" default=<<DefaultFoldState>> >
+                                <$button class=<<tv-config-toolbar-class>> setTitle="$:/temp/TWCrossLinksFoldData" setIndex=<<currentTiddler>> setTo="hide" >{{$:/core/images/fold-button}}</$button> 
+                                <<showFooterTabs>>
+                            </$reveal>
+                        </$list>
+                    </$list>
+                    <$list filter="[[$:/ak/plugins/TWCrossLinks/config/default]getindex[HideInboundTitle]] -[[false]]" variable=conf>
+                        <<showFooterTabs>>
+                    </$list>
+                </span>
+            </$reveal>
+        </$list>
+    </$set>
+</$list>
+
+<$list filter="[[$:/ak/plugins/TWCrossLinks/config/default]getindex[UseFullMatch4Freelinks]match[false]]" variable=none>
+    <$set name="text-pattern" value=<<PartialMatchPattern>>>
+        <$list filter="[all[current]tagging[]]  [search:keywords<currentTiddler>]  [regexp:text<text-pattern>] [regexp:title<text-pattern>] [all[current]backlinks[]] -[is[current]] -[tag[hide]] -[is[system]] +[limit[1]]" variable=none>
+            <$reveal type="nomatch" stateTitle=<<folded-state>> text="hide">
+                <span class="hideprint">
+                    <$list filter="[[$:/ak/plugins/TWCrossLinks/config/default]getindex[HideInboundTitle]] -[[true]]" variable=conf>
+                        <hr />
+                        <span style="font-size:0.85em" >
+                            //<$count filter="[all[current]tagging[]]  [search:keywords<currentTiddler>]  [regexp:text<text-pattern>] [regexp:title<text-pattern>] [all[current]backlinks[]] -[is[current]] -[tag[hide]] -[is[system]]" />  References:// 
+                        </span>
+                        <$list filter="[[$:/ak/plugins/TWCrossLinks/config/default]getindex[DefaultFoldData]]" variable=DefaultFoldState>
+                            <$reveal type="nomatch" stateTitle="$:/temp/TWCrossLinksFoldData" stateIndex=<<currentTiddler>> text="show" default=<<DefaultFoldState>> >
+                                <$button  class=<<tv-config-toolbar-class>> setTitle="$:/temp/TWCrossLinksFoldData" setIndex=<<currentTiddler>> setTo="show">{{$:/core/images/unfold-button}}</$button>    
+                            </$reveal>
+                            <$reveal type="match" stateTitle="$:/temp/TWCrossLinksFoldData" stateIndex=<<currentTiddler>> text="show" default=<<DefaultFoldState>> >
+                                <$button class=<<tv-config-toolbar-class>> setTitle="$:/temp/TWCrossLinksFoldData" setIndex=<<currentTiddler>> setTo="hide" >{{$:/core/images/fold-button}}</$button> 
+                                <<showFooterTabs>>
+                            </$reveal>
+                        </$list>
+                    </$list>
+                    <$list filter="[[$:/ak/plugins/TWCrossLinks/config/default]getindex[HideInboundTitle]] -[[false]]" variable=conf>
+                        <<showFooterTabs>>
+                    </$list>
+                </span>
+            </$reveal>
+        </$list>
+    </$set>
+</$list>

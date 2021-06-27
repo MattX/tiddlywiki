@@ -1,0 +1,18 @@
+created: 20200429195808011
+creator: akhater
+bag: default
+revision: 0
+type: application/json
+title: $:/ak/plugins/TWCrossLinks/config/default
+tags: 
+modified: 20200522132619441
+modifier: akhater
+
+
+{
+    "DefaultFoldData": "show",
+    "DefaultTab": "$:/ak/plugins/TWCrossLinks/core/backlinks",
+    "TranscludeInboundLinks": "true",
+    "HideInboundTitle": "false",
+    "UseFullMatch4Freelinks": "false"
+}

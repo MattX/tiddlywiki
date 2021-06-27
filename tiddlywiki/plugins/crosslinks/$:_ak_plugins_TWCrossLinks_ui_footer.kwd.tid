@@ -1,0 +1,24 @@
+created: 20200428214251454
+bag: default
+revision: 0
+type: text/vnd.tiddlywiki
+title: $:/ak/plugins/TWCrossLinks/ui/footer.kwd
+tags: $:/tags/ViewTemplate
+modified: 20200502090828057
+list-before: $:/ak/plugins/TWCrossLinks/ui/footer
+
+
+<!--If  has keywords-->
+<$list filter="[all[current]has[keywords]]">
+,,//See also//:
+<$list filter="[enlist{!!keywords}]" template="$:/ak/plugins/TWCrossLinks/ui/footer.kwd.template"></$list>,,
+</$list>
+<!--If reference field is not empty-->
+<$list filter="[is[current]!field:reference[]]">
+ <br />
+,,External ref: <a href={{!!url}} target="_blank" class="tc-tiddlylink-external"><$view field="reference"}}/></a><br>,,
+</$list>
+
+
+
+

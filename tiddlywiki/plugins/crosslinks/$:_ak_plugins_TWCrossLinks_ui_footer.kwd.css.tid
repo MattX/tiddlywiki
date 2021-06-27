@@ -1,0 +1,35 @@
+created: 20200428212006657
+bag: default
+revision: 0
+type: text/css
+title: $:/ak/plugins/TWCrossLinks/ui/footer.kwd.css
+tags: $:/tags/Stylesheet
+modified: 20200508045139340
+
+
+.sl-header{
+  color: #383d41;
+  background-color: #e2e3e5;
+  border-color: #d6d8db;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+}
+
+.sl-keywords {
+   display: inline-block;
+    padding: 0.16em 0.7em;
+    font-size: 0.9em;
+    font-weight: 400;
+    line-height: 1.2em;
+    color: #333333;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 1em;
+    background-color:#ffe7b3;
+}
+.sl-keywords {
+  outline:none;
+} /*remove the blue border on button focus */
+
+.TWCrossLinksFooter p { margin: 0;}
