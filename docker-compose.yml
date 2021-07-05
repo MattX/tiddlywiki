@@ -36,3 +36,4 @@ services:
       dockerfile: Dockerfile
     volumes:
       - /var/wiki/:/wiki/tiddlers/
+      - ${PWD}/github-api-key.txt:/etc/github-api-key.txt

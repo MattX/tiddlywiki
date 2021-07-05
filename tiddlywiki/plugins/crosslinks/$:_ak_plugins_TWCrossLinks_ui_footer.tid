@@ -27,7 +27,6 @@ $(currentTiddler)$(?i)
             <$reveal type="nomatch" stateTitle=<<folded-state>> text="hide">
                 <span class="hideprint">
                     <$list filter="[[$:/ak/plugins/TWCrossLinks/config/default]getindex[HideInboundTitle]] -[[true]]" variable=conf>
-                        <hr />
                         <span style="font-size:0.85em" >
                             //<$count filter="[all[current]tagging[]]  [search:keywords<currentTiddler>]  [regexp:text<text-pattern>] [regexp:title<text-pattern>] [all[current]backlinks[]] -[is[current]] -[tag[hide]] -[is[system]]" />  References:// 
                         </span>
@@ -56,7 +55,6 @@ $(currentTiddler)$(?i)
             <$reveal type="nomatch" stateTitle=<<folded-state>> text="hide">
                 <span class="hideprint">
                     <$list filter="[[$:/ak/plugins/TWCrossLinks/config/default]getindex[HideInboundTitle]] -[[true]]" variable=conf>
-                        <hr />
                         <span style="font-size:0.85em" >
                             //<$count filter="[all[current]tagging[]]  [search:keywords<currentTiddler>]  [regexp:text<text-pattern>] [regexp:title<text-pattern>] [all[current]backlinks[]] -[is[current]] -[tag[hide]] -[is[system]]" />  References:// 
                         </span>

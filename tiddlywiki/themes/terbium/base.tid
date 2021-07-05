@@ -138,6 +138,10 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 300;
 }
 
+h2:not(.tc-title), h3, h4 {
+	border-bottom: 1px solid <<colour foreground>>;
+}
+
 pre {
 	display: block;
 	margin-top: 1em;
