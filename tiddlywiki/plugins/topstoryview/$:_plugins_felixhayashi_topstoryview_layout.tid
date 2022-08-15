@@ -1,0 +1,9 @@
+title: $:/plugins/felixhayashi/topstoryview/layout
+type: text/vnd.tiddlywiki
+tags: ['$:/tags/Stylesheet']
+
+
+html .tc-story-river:after {
+  content: "";
+  display: block; }
+

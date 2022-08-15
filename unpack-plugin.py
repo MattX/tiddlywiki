@@ -15,12 +15,16 @@ def main():
     tiddlers = json.loads(plugin_file['text'])['tiddlers']
 
     for tiddler_name, fields in tiddlers.items():
-        text = fields['text']
-        del fields['text']
+        if 'text' in fields:
+            text = fields['text']
+            del fields['text']
+        else:
+            text = None
         with open(os.path.join(extract_path, tiddler_name.replace('/', '_') + '.tid'), 'w') as tfile:
             for field_name, field_value in fields.items():
                 tfile.write(f'{field_name}: {field_value}\n')
-            tfile.write(f'\n\n{text}\n')
+            if text is not None:
+                tfile.write(f'\n\n{text}\n')
     
     del plugin_file['text']
     with open(os.path.join(extract_path, 'plugin.info'), 'w') as info_file:

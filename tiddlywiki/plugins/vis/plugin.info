@@ -1,0 +1,12 @@
+{
+    "version": "",
+    "type": "application/json",
+    "title": "$:/plugins/felixhayashi/vis",
+    "source": "https://github.com/felixhayashi/TW5-Vis.js",
+    "plugin-type": "plugin",
+    "list": "readme",
+    "description": "Visjs \u2013 TiddlyWiki5 plugin for the vis.js library",
+    "dependents": "",
+    "core-version": ">=5.0.0",
+    "author": "Felix K\u00fcppers"
+}
