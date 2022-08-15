@@ -37,3 +37,20 @@ services:
     volumes:
       - /var/wiki/:/wiki/tiddlers/
       - ${PWD}/github-api-key.txt:/etc/github-api-key.txt
+
+  synapse:
+    image: docker.io/supergarfield/synapse:latest
+    # Since synapse does not retry to connect to the database, restart upon
+    # failure
+    restart: unless-stopped
+    # See the readme for a full documentation of the environment settings
+    # NOTE: You must edit homeserver.yaml to use postgres, it defaults to sqlite
+    environment:
+      - SYNAPSE_CONFIG_PATH=/data/homeserver.yaml
+      - UID=1001
+      - GID=1001
+    volumes:
+      - ${PWD}/synapse/data:/data
+    expose:
+      - 8008
+
